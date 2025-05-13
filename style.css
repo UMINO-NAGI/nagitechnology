@@ -1,0 +1,256 @@
+/* style.css */
+:root {
+  --color-bg-light: #ffffff;
+  --color-bg-dark: #121212;
+  --color-text-light: #000000;
+  --color-text-dark: #e0e0e0;
+  --color-primary: #0077cc;
+  --color-primary-dark: #3399ff;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+body.dark {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+header, nav, footer {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.logo a {
+  color: #fff;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 15px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 12px;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 4px;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.hero {
+  padding: 60px 20px;
+  text-align: center;
+  background: var(--color-primary-dark);
+  color: #fff;
+}
+
+.hero .btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #fff;
+  color: var(--color-primary-dark);
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.hero .btn:hover {
+  background-color: #e0e0e0;
+}
+
+.intro, .features, main section {
+  padding: 40px 20px;
+}
+
+.intro h2, .features h2 {
+  margin-top: 0;
+}
+
+.features ul {
+  list-style: none;
+  padding: 0;
+}
+
+.features li {
+  margin-bottom: 10px;
+}
+
+.features strong {
+  color: var(--color-primary);
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: var(--color-primary);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.ad-block {
+  margin: 30px 0;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px dashed #ccc;
+  text-align: center;
+  color: #555;
+  font-style: italic;
+}
+
+main article {
+  margin-bottom: 20px;
+}
+
+main article h2 {
+  margin-bottom: 10px;
+}
+
+main article h2 a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+main article h2 a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  padding: 20px;
+  text-align: center;
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.footer-links, .social {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.social a.social-placeholder {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 5px;
+  font-weight: bold;
+}
+
+footer p {
+  font-size: 0.9em;
+  margin: 5px 0 0;
+}
+
+/* Forms */
+form {
+  max-width: 600px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-top: 10px;
+}
+
+form input, form textarea {
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+#form-message {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+  .nav-links li {
+      margin: 5px 0;
+  }
+  header nav {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+  .theme-toggle {
+      align-self: flex-end;
+  }
+
+}
+
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
