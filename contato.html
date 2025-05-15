@@ -71,7 +71,7 @@
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1902397780848792"
                 crossorigin="anonymous"></script>
             <!-- primer -->
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1902397780848792"
+            <ins class="adsbygoogle lazy-ad" style="display:block" data-ad-client="ca-pub-1902397780848792"
                 data-ad-slot="6919617205" data-ad-format="auto" data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
@@ -93,5 +93,18 @@
     </footer>
     <script src="script.js"></script>
     <script type='text/javascript' src='//pl26633008.profitableratecpm.com/c2/47/b7/c247b7e308a0a5e383a2c5889766435e.js'></script>
+    <script>
+        const lazyAds = document.querySelectorAll('.lazy-ad');
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              (adsbygoogle = window.adsbygoogle || []).push({});
+              observer.unobserve(entry.target);
+            }
+          });
+        });
+        lazyAds.forEach(ad => observer.observe(ad));
+      </script>
+      
 </body>
 </html>
