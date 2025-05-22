@@ -1,49 +1,83 @@
-const menuBtn = document.getElementById('menu-btn');
-const nav = document.getElementById('sidebar');
-const themeToggle = document.getElementById('theme-toggle');
-const tabLinks = document.querySelectorAll('nav a');
-const tabs = document.querySelectorAll('.tab');
+// script.js — NAGI TECHNOLOGY
 
-menuBtn.addEventListener('click', () => {
-  nav.classList.toggle('active');
-});
+// Alternância de Tema Claro/Escuro
+const toggleButton = document.getElementById('theme-toggle');
+if (toggleButton) {
+  toggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    if (document.body.classList.contains('dark')) {
+      localStorage.setItem('theme', 'dark');
+      toggleButton.textContent = '☀️';
+    } else {
+      localStorage.setItem('theme', 'light');
+      toggleButton.textContent = '🌙';
+    }
+  });
+}
 
-document.addEventListener('click', (e) => {
-  if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
-    nav.classList.remove('active');
+// Aplicar tema salvo ao carregar
+window.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark');
+    if (toggleButton) toggleButton.textContent = '☀️';
+  } else {
+    if (toggleButton) toggleButton.textContent = '🌙';
   }
-});
 
-document.getElementById('comentario-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  const nome = document.getElementById('nome').value.trim();
-  const mensagem = document.getElementById('mensagem').value.trim();
-
-  if (nome && mensagem) {
-    const div = document.createElement('div');
-    div.classList.add('comentario');
-    div.innerHTML = `<strong>${nome}</strong><p>${mensagem}</p>`;
-
-    document.getElementById('comentarios').prepend(div); // Mostra o mais recente no topo
-
-    document.getElementById('comentario-form').reset();
-  }
-});
-
-themeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-});
-
-// Troca de abas
-tabLinks.forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    const tabId = link.getAttribute('data-tab');
-    tabs.forEach(tab => {
-      tab.classList.remove('active');
+  // Fade-in para seções ao rolar
+  const sections = document.querySelectorAll('main section, main article');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
     });
-    document.getElementById(tabId).classList.add('active');
-    nav.classList.remove('active');
+  }, {
+    threshold: 0.1
+  });
+  sections.forEach(section => {
+    section.classList.add('fade');
+    observer.observe(section);
   });
 });
+
+// Scroll suave para âncoras internas
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+// Alerta para links inativos
+document.querySelectorAll('a[href="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    alert("Este link ainda não está disponível.");
+  });
+});
+
+// Validação do formulário de contato
+const form = document.getElementById('contact-form');
+if (form) {
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = form.elements['name'] ? form.elements['name'].value.trim() : '';
+    const email = form.elements['email'] ? form.elements['email'].value.trim() : '';
+    const message = form.elements['message'] ? form.elements['message'].value.trim() : '';
+    const formMessage = document.getElementById('form-message');
+
+    if (!name || !email || !message) {
+      formMessage.textContent = 'Por favor, preencha todos os campos.';
+      formMessage.style.color = 'red';
+    } else {
+      formMessage.textContent = 'Mensagem enviada com sucesso. Obrigado pelo contato!';
+      formMessage.style.color = 'green';
+      form.reset();
+    }
+  });
+}
