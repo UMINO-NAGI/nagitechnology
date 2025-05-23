@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tarefa com Anúncio - NAGI</title>
+  <link rel="stylesheet" href="../NAGI-Rewards/popup.css" />
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1902397780848792" crossorigin="anonymous"></script>
+  <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+  <style>
+    .hidden { display: none; }
+  </style>
+
+  <!-- Adsterra: pré-banner e scripts dinâmicos -->
+  <script type='text/javascript' src='//mascarapersonality.com/7b/68/8a/7b688a763de5d2405e5e78932f356836.js'></script>
+</head>
+<body>
+  <!-- AMP Ads (Google AdSense) -->
+  <amp-auto-ads type="adsense" data-ad-client="ca-pub-1902397780848792"></amp-auto-ads>
+
+  <section>
+    <h2>🔔 Assista o anúncio completo para ganhar pontos</h2>
+    <p>Mantenha esta página aberta por pelo menos 30 segundos com o anúncio visível.</p>
+
+    <!-- Google AdSense display -->
+    <div id="anuncio-area">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-1902397780848792"
+           data-ad-slot="1234567890"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+    <!-- Adsterra fallback/extra -->
+    <div class="ad-block">
+      <script async="async" data-cfasync="false" src="//mascarapersonality.com/8da9d415338f42cfd2d45ae21e6fcb05/invoke.js"></script>
+      <div id="container-8da9d415338f42cfd2d45ae21e6fcb05"></div>
+    </div>
+
+    <p style="margin-top: 1rem;">
+      <a href="https://mascarapersonality.com/k0p0ap8bt?key=cf2816cba6dd842c9a9ca18896953972" target="_blank">Ajude o site a crescer</a>
+    </p>
+
+    <p id="mensagem" style="margin-top: 20px; font-weight: bold;"></p>
+  </section>
+
+  <!-- Lógica de validação de tempo de anúncio -->
+  <script>
+    const TEMPO_MINIMO = 30000; // 30 segundos
+    let inicio = Date.now();
+    let anuncioAtivo = true;
+
+    function validarAnuncio() {
+      const tempo = Date.now() - inicio;
+      const visivel = document.visibilityState === 'visible';
+
+      if (tempo >= TEMPO_MINIMO && visivel && anuncioAtivo) {
+        document.getElementById("mensagem").textContent = "✅ Anúncio validado! Pontuação enviada.";
+        window.parent.postMessage({ tipo: "anuncio_valido" }, "*");
+        anuncioAtivo = false;
+      }
+    }
+
+    const intervalo = setInterval(validarAnuncio, 2000);
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState !== 'visible') {
+        inicio = Date.now();
+      }
+    });
+  </script>
+<script src="../popup.js"></script>
+  <!-- Script extra Adsterra -->
+  <script type='text/javascript' src='//mascarapersonality.com/c2/47/b7/c247b7e308a0a5e383a2c5889766435e.js'></script>
+</body>
+</html>
