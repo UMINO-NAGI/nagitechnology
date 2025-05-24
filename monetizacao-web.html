@@ -14,15 +14,14 @@
 </head>
 <body>
   <amp-auto-ads type="adsense" data-ad-client="ca-pub-1902397780848792"></amp-auto-ads>
-
   <section>
-    <h2>💰 Como Funciona a Monetização na NAGI?</h2>
-    <p>Você pode ganhar recompensas reais de várias formas ao usar a extensão:</p>
+    <h2>🌐 Como Funciona a Monetização</h2>
+    <p>A plataforma NAGI Rewards gera receita com base na exibição e interação com anúncios. Utilizamos redes confiáveis como:</p>
     <ul>
-      <li>▶️ Assistindo anúncios qualificados (AdSense e Adsterra)</li>
-      <li>🔗 Indicando amigos com seu link exclusivo</li>
-      <li>📝 Comentando com sugestões e experiências</li>
+      <li>✅ Google AdSense</li>
+      <li>✅ Adsterra</li>
     </ul>
+    <p>A receita obtida é convertida parcialmente em recompensas para os usuários. A cada 10 anúncios validados, o usuário recebe <strong>$0.05</strong>.</p>
 
     <!-- Google AdSense Display -->
     <div class="adsense">
@@ -42,8 +41,27 @@
     </div>
     <a href="https://mascarapersonality.com/k0p0ap8bt?key=cf2816cba6dd842c9a9ca18896953972" target="_blank">Visite o site</a>
     <p style="margin-top: 2rem;">Recompensas são acumuladas na extensão e sacadas via PayPal ao atingir $5.00. Acompanhe seu progresso pela aba "Ganhos" da extensão.</p>
-<script src="../popup.js"></script>
+<script src="..../NAGI-Rewards/popup.js"></script>
   </section>
+  <script>
+    const TEMPO_MINIMO = 30000;
+    let inicio = Date.now();
+    let validado = false;
+  
+    function checarTempo() {
+      const visivel = document.visibilityState === 'visible';
+      if (Date.now() - inicio >= TEMPO_MINIMO && visivel && !validado) {
+        window.parent.postMessage({ tipo: 'anuncio_valido' }, '*');
+        validado = true;
+      }
+    }
+  
+    setInterval(checarTempo, 2000);
+  
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState !== 'visible') inicio = Date.now();
+    });
+  </script>
   <script type='text/javascript' src='//mascarapersonality.com/c2/47/b7/c247b7e308a0a5e383a2c5889766435e.js'></script>
 </body>
 </html>

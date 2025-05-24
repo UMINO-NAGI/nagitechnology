@@ -21,27 +21,24 @@
   <amp-auto-ads type="adsense" data-ad-client="ca-pub-1902397780848792"></amp-auto-ads>
 
   <section>
-    <h2>🔔 Assista o anúncio completo para ganhar pontos</h2>
-    <p>Mantenha esta página aberta por pelo menos 30 segundos com o anúncio visível.</p>
+    <h2>🎯 Assistir Anúncio</h2>
+    <p>Aguarde no mínimo <strong>30 segundos</strong> com a aba visível para validar sua tarefa.</p>
 
-    <!-- Google AdSense display -->
-    <div id="anuncio-area">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-1902397780848792"
-           data-ad-slot="1234567890"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-    </div>
+    <!-- AdSense Banner -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-1902397780848792"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-    <!-- Adsterra fallback/extra -->
-    <div class="ad-block">
+    <!-- Adsterra Banner -->
+    <div id="adsterra-slot">
       <script async="async" data-cfasync="false" src="//mascarapersonality.com/8da9d415338f42cfd2d45ae21e6fcb05/invoke.js"></script>
       <div id="container-8da9d415338f42cfd2d45ae21e6fcb05"></div>
     </div>
+  </section>
 
     <p style="margin-top: 1rem;">
       <a href="https://mascarapersonality.com/k0p0ap8bt?key=cf2816cba6dd842c9a9ca18896953972" target="_blank">Ajude o site a crescer</a>
@@ -49,34 +46,31 @@
 
     <p id="mensagem" style="margin-top: 20px; font-weight: bold;"></p>
   </section>
-
-  <!-- Lógica de validação de tempo de anúncio -->
+<script src="..../NAGI-Rewards/popup.js"></script>
+  <!-- Script extra Adsterra -->
+  <script type='text/javascript' src='//mascarapersonality.com/c2/47/b7/c247b7e308a0a5e383a2c5889766435e.js'></script>
   <script>
     const TEMPO_MINIMO = 30000; // 30 segundos
     let inicio = Date.now();
-    let anuncioAtivo = true;
+    let validado = false;
 
-    function validarAnuncio() {
-      const tempo = Date.now() - inicio;
+    function validarTarefa() {
+      const agora = Date.now();
       const visivel = document.visibilityState === 'visible';
-
-      if (tempo >= TEMPO_MINIMO && visivel && anuncioAtivo) {
-        document.getElementById("mensagem").textContent = "✅ Anúncio validado! Pontuação enviada.";
-        window.parent.postMessage({ tipo: "anuncio_valido" }, "*");
-        anuncioAtivo = false;
+      if (!validado && visivel && (agora - inicio >= TEMPO_MINIMO)) {
+        window.parent.postMessage({ tipo: 'anuncio_valido' }, '*');
+        document.getElementById('status').textContent = '✅ Anúncio validado com sucesso!';
+        validado = true;
       }
     }
 
-    const intervalo = setInterval(validarAnuncio, 2000);
+    setInterval(validarTarefa, 2000);
 
-    document.addEventListener("visibilitychange", () => {
+    document.addEventListener('visibilitychange', () => {
       if (document.visibilityState !== 'visible') {
         inicio = Date.now();
       }
     });
   </script>
-<script src="../popup.js"></script>
-  <!-- Script extra Adsterra -->
-  <script type='text/javascript' src='//mascarapersonality.com/c2/47/b7/c247b7e308a0a5e383a2c5889766435e.js'></script>
 </body>
 </html>
