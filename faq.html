@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguntas Frequentes | NAGI Technology</title>
+    <style>
+       :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --accent: #f97316;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --success: #10b981;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background-color: #f8fafc;
+        }
+
+        body.dark {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-align: center;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        body.dark .section-title h2 {
+            color: var(--light);
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--gray);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        body.dark header {
+            background-color: #1e293b;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo a {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--secondary);
+        }
+
+        body.dark .nav-links a {
+            color: var(--light);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+            margin-left: 20px;
+            color: var(--secondary);
+        }
+
+        body.dark .theme-toggle {
+            color: var(--light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 35px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        body.dark .feature-card {
+            background: #1e293b;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+
+        .feature-icon svg {
+            width: 36px;
+            height: 36px;
+            color: var(--primary);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: linear-gradient(45deg, #2563eb, #8b5cf6);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-image-content {
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .about-image-content h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        body.dark .stat-card {
+            background: #1e293b;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        body.dark .stat-label {
+            color: var(--light);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 70px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-about p {
+            margin-bottom: 25px;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: white;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+            opacity: 0.7;
+        }
+
+        .indigina-message {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            font-style: italic;
+        }
+
+        /* Blog Styles */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        body.dark .blog-card {
+            background: #1e293b;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-image {
+            height: 200px;
+            background: linear-gradient(45deg, #2563eb, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .blog-content {
+            padding: 25px;
+        }
+        
+        .blog-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        
+        .blog-meta {
+            display: flex;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .blog-meta span {
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .blog-meta svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Projects Page */
+        .project-detail {
+            margin-bottom: 60px;
+        }
+
+        .project-detail .about-content {
+            margin-bottom: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                margin-top: 20px;
+                flex-wrap: wrap;
+            }
+
+            .nav-links li {
+                margin: 10px 15px;
+            }
+
+            .hero {
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        /* AdSense Placeholder */
+        .ad-container {
+            margin: 40px 0;
+            padding: 20px;
+            background: #f1f5f9;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+        
+        body.dark .ad-container {
+            background: #1e293b;
+        }
+        
+        .faq-item {
+            margin-bottom: 30px;
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        body.dark .faq-item {
+            background: #1e293b;
+        }
+        
+        .faq-item h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="index.html">NAGI TECHNOLOGY</a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Sobre</a></li>
+                    <li><a href="projects.html">Projetos</a></li>
+                    <li><a href="comofunciona.html">Como Funciona</a></li>
+                    <li><a href="vantagens.html">Vantagens</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+                <button id="theme-toggle" class="theme-toggle">🌙</button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" style="background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);">
+        <div class="container">
+            <h1>Perguntas Frequentes</h1>
+            <p>Encontre respostas para as dúvidas mais comuns</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Dúvidas Gerais</h2>
+                <p>Respostas para as perguntas mais frequentes sobre nossos serviços</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>O que é o NAGI-Rewards?</h3>
+                <p>O NAGI-Rewards é uma plataforma de fidelidade digital baseada em blockchain que permite a empresas criar programas de recompensas personalizados, enquanto os clientes acumulam e resgatam pontos de forma transparente e segura.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Como minha empresa pode implementar o NAGI-Rewards?</h3>
+                <p>O processo de implementação inclui:</p>
+                <ol>
+                    <li>Análise das necessidades do seu negócio</li>
+                    <li>Configuração personalizada do programa</li>
+                    <li>Integração com seus sistemas existentes</li>
+                    <li>Treinamento da equipe</li>
+                    <li>Lançamento e acompanhamento contínuo</li>
+                </ol>
+                <p>Entre em contato para agendar uma demonstração personalizada.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Quanto custa para os clientes participarem?</h3>
+                <p>A participação no programa é totalmente gratuita para os clientes finais. Eles podem se cadastrar e começar a acumular pontos sem qualquer custo.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Quais tipos de recompensas posso oferecer?</h3>
+                <p>Nossa plataforma suporta diversos tipos de recompensas, incluindo:</p>
+                <ul>
+                    <li>Descontos em compras futuras</li>
+                    <li>Produtos gratuitos ou serviços</li>
+                    <li>Brindes exclusivos</li>
+                    <li>Experiências personalizadas</li>
+                    <li>Doações para instituições de caridade</li>
+                </ul>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Como a blockchain é utilizada na plataforma?</h3>
+                <p>Utilizamos tecnologia blockchain para registrar todas as transações de pontos de forma imutável e transparente. Isso garante:</p>
+                <ul>
+                    <li>Segurança contra fraudes</li>
+                    <li>Transparência total para clientes e empresas</li>
+                    <li>Registros auditáveis de todas as transações</li>
+                    <li>Redução de custos operacionais</li>
+                </ul>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Quanto tempo leva para implantar o sistema?</h3>
+                <p>O tempo médio de implementação é de 2 a 4 semanas, dependendo da complexidade das integrações necessárias com sistemas existentes e do nível de personalização requerido.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mesmo footer da página inicial -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">NAGI TECHNOLOGY</div>
+                    <p>Desenvolvendo o futuro da tecnologia em Angola com soluções inovadoras e acessíveis.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com/nagitechnology" class="social-link">FB</a>
+                        <a href="https://twitter.com/nagitechnology" class="social-link">TW</a>
+                        <a href="https://linkedin.com/company/nagitechnology" class="social-link">IN</a>
+                        <a href="https://youtube.com/nagitechnology" class="social-link">YT</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">Sobre Nós</a></li>
+                        <li><a href="projects.html">Projetos</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Nossos Projetos</h4>
+                    <ul>
+                        <li><a href="projects.html">NAGI-Rewards</a></li>
+                        <li><a href="projects.html">NAGI-Pay</a></li>
+                        <li><a href="projects.html">NAGI-Analytics</a></li>
+                        <li><a href="projects.html">NAGI-Cloud</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Política de Privacidade</a></li>
+                        <li><a href="terms.html">Termos de Uso</a></li>
+                        <li><a href="cookies.html">Política de Cookies</a></li>
+                        <li><a href="faq.html">Perguntas Frequentes</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Mensagem especial no rodapé -->
+            <div class="indigina-message">
+                <p>UMINO NAGI - EU ESTIVE AQUI!</p>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 NAGI Technology. Todos os direitos reservados. CNPJ: 00.000.000/0000-00</p>
+                <p>Av. de Portugal, Luanda, Angola | contato@nagitech.com | +244 123 456 789</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

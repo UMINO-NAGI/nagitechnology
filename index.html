@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="NAGI Technology: Soluções inovadoras em tecnologia com foco em programas de recompensas digitais como o NAGI-Rewards">
+    <meta name="keywords" content="tecnologia Angola, NAGI-Rewards, blockchain, fidelidade digital, programa de recompensas">
+    <meta name="author" content="NAGI TECHNOLOGY">
+    <title>NAGI Technology | Soluções Digitais Inovadoras</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --accent: #f97316;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --success: #10b981;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background-color: #f8fafc;
+        }
+
+        body.dark {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-align: center;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        body.dark .section-title h2 {
+            color: var(--light);
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--gray);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        body.dark header {
+            background-color: #1e293b;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo a {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--secondary);
+        }
+
+        body.dark .nav-links a {
+            color: var(--light);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            cursor: pointer;
+            margin-left: 20px;
+            color: var(--secondary);
+        }
+
+        body.dark .theme-toggle {
+            color: var(--light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 35px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        body.dark .feature-card {
+            background: #1e293b;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+
+        .feature-icon svg {
+            width: 36px;
+            height: 36px;
+            color: var(--primary);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: linear-gradient(45deg, #2563eb, #8b5cf6);
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-image-content {
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .about-image-content h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        body.dark .stat-card {
+            background: #1e293b;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        body.dark .stat-label {
+            color: var(--light);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 70px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-about p {
+            margin-bottom: 25px;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: white;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: white;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+            opacity: 0.7;
+        }
+
+        .indigina-message {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            font-style: italic;
+        }
+
+        /* Blog Styles */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        body.dark .blog-card {
+            background: #1e293b;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-image {
+            height: 200px;
+            background: linear-gradient(45deg, #2563eb, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .blog-content {
+            padding: 25px;
+        }
+        
+        .blog-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        
+        .blog-meta {
+            display: flex;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .blog-meta span {
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .blog-meta svg {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Projects Page */
+        .project-detail {
+            margin-bottom: 60px;
+        }
+
+        .project-detail .about-content {
+            margin-bottom: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                margin-top: 20px;
+                flex-wrap: wrap;
+            }
+
+            .nav-links li {
+                margin: 10px 15px;
+            }
+
+            .hero {
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        /* AdSense Placeholder */
+        .ad-container {
+            margin: 40px 0;
+            padding: 20px;
+            background: #f1f5f9;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+        
+        body.dark .ad-container {
+            background: #1e293b;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="index.html">NAGI TECHNOLOGY</a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Sobre</a></li>
+                    <li><a href="projects.html">Projetos</a></li>
+                    <li><a href="comofunciona.html">Como Funciona</a></li>
+                    <li><a href="vantagens.html">Vantagens</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+                <button id="theme-toggle" class="theme-toggle">🌙</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Inovação Tecnológica que Transforma Negócios</h1>
+            <p>Desenvolvemos soluções digitais avançadas com foco em blockchain e programas de fidelidade que impulsionam resultados</p>
+            <a href="projects.html" class="btn btn-outline">Conheça Nossos Projetos</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Por que escolher a NAGI Technology</h2>
+                <p>Soluções inovadoras que combinam tecnologia de ponta com resultados mensuráveis</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3>Segurança Blockchain</h3>
+                    <p>Tecnologia de registro distribuído que garante transações imutáveis e protegidas contra fraudes</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3>Transparência Total</h3>
+                    <p>Cada ponto e recompensa são rastreáveis, trazendo confiança para empresas e clientes</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                    <h3>Engajamento Comprovado</h3>
+                    <p>Mecanismos de gamificação que aumentam em 40% a retenção de clientes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AdSense Placeholder -->
+    <div class="container">
+        <div class="ad-container">
+            <p>Publicidade - Espaço reservado para anúncios do Google AdSense</p>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section style="background-color: #f1f5f9;">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Sobre a NAGI Technology</h2>
+                    <p>Fundada em 2023, a NAGI Technology nasceu com o propósito de revolucionar o setor de tecnologia em Angola e além. Nossa equipe reúne profissionais experientes em desenvolvimento de software, blockchain e marketing digital.</p>
+                    <p>Nosso foco é criar soluções digitais que simplificam processos empresariais e encantam consumidores, combinando tecnologia de ponta com experiência do usuário excepcional.</p>
+                    <p><strong>Missão:</strong> Desenvolver tecnologia avançada que impulsione o sucesso dos nossos clientes e parceiros.</p>
+                    <p><strong>Visão:</strong> Ser referência em inovação tecnológica na África, transformando ideias em soluções reais e eficazes.</p>
+                    <a href="about.html" class="btn">Conheça Nossa História</a>
+                </div>
+                <div class="about-image">
+                    <div class="about-image-content">
+                        <h3>NAGI-Rewards</h3>
+                        <p>Plataforma de fidelidade digital baseada em blockchain</p>
+                        <p>Ganhe pontos, resgate recompensas e transforme sua experiência</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section>
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Resultados</h2>
+                <p>Impacto real através de tecnologia inovadora</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Satisfação de Clientes</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">40+</div>
+                    <div class="stat-label">Parceiros Comerciais</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50K</div>
+                    <div class="stat-label">Usuários Ativos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">99.9%</div>
+                    <div class="stat-label">Uptime da Plataforma</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">NAGI TECHNOLOGY</div>
+                    <p>Desenvolvendo o futuro da tecnologia em Angola com soluções inovadoras e acessíveis.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com/nagitechnology" class="social-link">FB</a>
+                        <a href="https://twitter.com/nagitechnology" class="social-link">TW</a>
+                        <a href="https://linkedin.com/company/nagitechnology" class="social-link">IN</a>
+                        <a href="https://youtube.com/nagitechnology" class="social-link">YT</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">Sobre Nós</a></li>
+                        <li><a href="projects.html">Projetos</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Nossos Projetos</h4>
+                    <ul>
+                        <li><a href="projects.html">NAGI-Rewards</a></li>
+                        <li><a href="projects.html">NAGI-Pay</a></li>
+                        <li><a href="projects.html">NAGI-Analytics</a></li>
+                        <li><a href="projects.html">NAGI-Cloud</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Política de Privacidade</a></li>
+                        <li><a href="terms.html">Termos de Uso</a></li>
+                        <li><a href="cookies.html">Política de Cookies</a></li>
+                        <li><a href="faq.html">Perguntas Frequentes</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Mensagem especial no rodapé -->
+            <div class="indigina-message">
+                <p>UMINO NAGI - EU ESTIVE AQUI!</p>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 NAGI Technology. Todos os direitos reservados. CNPJ: 00.000.000/0000-00</p>
+                <p>Av. de Portugal, Luanda, Angola | contato@nagitech.com | +244 123 456 789</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const toggleButton = document.getElementById('theme-toggle');
+        if (toggleButton) {
+            toggleButton.addEventListener('click', () => {
+                document.body.classList.toggle('dark');
+                if (document.body.classList.contains('dark')) {
+                    localStorage.setItem('theme', 'dark');
+                    toggleButton.textContent = '☀️';
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    toggleButton.textContent = '🌙';
+                }
+            });
+        }
+
+        // Apply saved theme
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark');
+                if (toggleButton) toggleButton.textContent = '☀️';
+            }
+            
+            // Animation on scroll
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.feature-card, .stat-card');
+                elements.forEach(el => {
+                    const position = el.getBoundingClientRect();
+                    if (position.top < window.innerHeight * 0.85) {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // Set initial state for animation
+            document.querySelectorAll('.feature-card, .stat-card').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Initial check
+        });
+
+        // AdSense requirements
+        window.addEventListener('load', () => {
+            // Ensure all ads are properly loaded
+            const adContainers = document.querySelectorAll('.ad-container');
+            adContainers.forEach(container => {
+                if (!container.innerHTML.trim()) {
+                    container.innerHTML = '<p>Publicidade - Espaço reservado para anúncios do Google AdSense</p>';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
