@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain e Fidelidade | NAGI Technology</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --accent: #f97316;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --success: #10b981;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background-color: #f8fafc;
+        }
+
+        body.dark {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-align: center;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        section {
+            padding: 50px 0;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        body.dark header {
+            background-color: #1e293b;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo a {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--secondary);
+        }
+
+        body.dark .nav-links a {
+            color: var(--light);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-left: 15px;
+            color: var(--secondary);
+        }
+
+        body.dark .theme-toggle {
+            color: var(--light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+            font-size: 0.95rem;
+        }
+
+        /* Article Content */
+        .article-content {
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        body.dark .article-content {
+            background: #1e293b;
+        }
+        
+        .article-content h2 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .article-content h3 {
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin: 15px 0 15px 30px;
+        }
+        
+        .article-content li {
+            margin-bottom: 10px;
+        }
+        
+        .article-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(45deg, #2563eb, #8b5cf6);
+            border-radius: var(--border-radius);
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .article-quote {
+            border-left: 4px solid var(--primary);
+            padding-left: 20px;
+            margin: 25px 0;
+            font-style: italic;
+            color: var(--gray);
+        }
+        
+        body.dark .article-quote {
+            color: #cbd5e1;
+        }
+        
+        .article-tags {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .article-tag {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Related Articles */
+        .related-articles {
+            margin-top: 50px;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .related-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        body.dark .related-card {
+            background: #1e293b;
+        }
+        
+        .related-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .related-image {
+            height: 150px;
+            background: linear-gradient(45deg, #0ea5e9, #6366f1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .related-content {
+            padding: 20px;
+        }
+        
+        .related-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .footer-about p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-link {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        .indigina-message {
+            text-align: center;
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                margin-top: 15px;
+                flex-wrap: wrap;
+            }
+
+            .nav-links li {
+                margin: 8px 12px;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .article-content {
+                padding: 25px;
+            }
+            
+            .article-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="index.html">NAGI TECHNOLOGY</a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="projects.html">Projetos</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+                <button id="theme-toggle" class="theme-toggle">🌙</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Blockchain e Fidelidade: Revolucionando os Programas de Recompensa</h1>
+            <div class="blog-meta">
+                <span>15 de Outubro, 2025</span>
+                <span>8 min de leitura</span>
+                <span>Por Equipe NAGI</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <section>
+        <div class="container">
+            <div class="article-content">
+                <p>Nos programas de fidelidade tradicionais, muitas vezes enfrentamos burocracia e atrasos na concessão de recompensas. Arquivos fragmentados e intermediários encarecem o processo e deixam o usuário confuso. Entretanto, a tecnologia blockchain oferece uma solução revolucionária para esses problemas.</p>
+                
+                <div class="article-image">Blockchain na Fidelidade</div>
+                
+                <h2>O Problema com Sistemas Tradicionais</h2>
+                <p>Programas de fidelidade convencionais enfrentam vários desafios significativos:</p>
+                
+                <ul>
+                    <li><strong>Falta de transparência:</strong> Os clientes não conseguem verificar como seus pontos são calculados</li>
+                    <li><strong>Fraudes e erros:</strong> Sistemas centralizados são vulneráveis a manipulações</li>
+                    <li><strong>Interoperabilidade limitada:</strong> Dificuldade em integrar diferentes programas de fidelidade</li>
+                    <li><strong>Alto custo operacional:</strong> Necessidade de intermediários e sistemas complexos</li>
+                    <li><strong>Experiência do usuário deficiente:</strong> Processos lentos e burocráticos para resgate</li>
+                </ul>
+                
+                <div class="article-quote">
+                    "A tecnologia blockchain resolve problemas fundamentais de confiança e transparência que sempre limitaram os programas de fidelidade tradicionais."
+                </div>
+                
+                <h2>Solução Blockchain</h2>
+                <p>No blockchain, as transações são registradas em um livro-razão distribuído e imutável. Isso significa que cada ponto de recompensa gerado e utilizado fica gravado de forma segura e transparente. Para as empresas, essa abordagem reduz fraudes e permite integrações entre diferentes programas de fidelidade, sem intermediários desnecessários.</p>
+                
+                <h3>Vantagens para as Empresas</h3>
+                <p>As empresas que adotam blockchain em seus programas de fidelidade observam benefícios significativos:</p>
+                
+                <ul>
+                    <li><strong>Redução de custos:</strong> Eliminação de intermediários e processos manuais</li>
+                    <li><strong>Maior engajamento:</strong> Transparência aumenta a confiança dos clientes</li>
+                    <li><strong>Dados em tempo real:</strong> Acesso imediato a análises e métricas</li>
+                    <li><strong>Interoperabilidade:</strong> Facilidade em criar parcerias com outras empresas</li>
+                    <li><strong>Segurança aprimorada:</strong> Proteção contra fraudes e ataques</li>
+                </ul>
+                
+                <h2>Implementação no NAGI-Rewards</h2>
+                <p>No NAGI-Rewards, aplicamos a tecnologia blockchain para criar tokens de fidelidade exclusivos. Quando um usuário acumula pontos, um token correspondente é emitido e registrado no blockchain. Ao resgatar uma recompensa, o token é consumido e o registro atualizado instantaneamente. Essa abordagem garante uma experiência fluida e confiável tanto para empresas quanto para usuários.</p>
+                
+                <div class="article-image">NAGI-Rewards Platform</div>
+                
+                <h3>Características Técnicas</h3>
+                <p>Nossa implementação de blockchain inclui:</p>
+                
+                <ol>
+                    <li>Contratos inteligentes para automatizar regras de fidelidade</li>
+                    <li>Registro imutável de todas as transações</li>
+                    <li>Carteiras digitais seguras para os usuários</li>
+                    <li>API para integração com sistemas existentes</li>
+                    <li>Painel analítico em tempo real</li>
+                </ol>
+                
+                <h2>Benefícios para o Cliente</h2>
+                <p>Além disso, contratos inteligentes podem automatizar regras de emissão e resgate, garantindo rapidez e eliminando erros manuais. Com isso, os programas de fidelidade tornam-se mais dinâmicos e práticos, oferecendo aos clientes a segurança de saber que seus pontos são sempre válidos e valorizados. Sem dúvida, o blockchain está redefinindo o futuro das recompensas digitais.</p>
+                
+                <div class="article-tags">
+                    <span class="article-tag">Blockchain</span>
+                    <span class="article-tag">Fidelidade</span>
+                    <span class="article-tag">Tecnologia</span>
+                    <span class="article-tag">Inovação</span>
+                </div>
+            </div>
+            
+            <div class="related-articles">
+                <h2>Artigos Relacionados</h2>
+                <div class="related-grid">
+                    <div class="related-card">
+                        <div class="related-image">Gamificação</div>
+                        <div class="related-content">
+                            <h3>Gamificação no Marketing</h3>
+                            <p>Conquistando clientes de forma engajadora</p>
+                            <a href="post2.html" class="btn" style="margin-top: 10px; display: inline-block; padding: 8px 15px; font-size: 0.9rem;">Ler Artigo</a>
+                        </div>
+                    </div>
+                    
+                    <div class="related-card">
+                        <div class="related-image">Tendências</div>
+                        <div class="related-content">
+                            <h3>Tendências em Recompensas</h3>
+                            <p>O que esperar para 2025</p>
+                            <a href="post3.html" class="btn" style="margin-top: 10px; display: inline-block; padding: 8px 15px; font-size: 0.9rem;">Ler Artigo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">NAGI TECHNOLOGY</div>
+                    <p>Desenvolvendo o futuro da tecnologia em Angola com soluções inovadoras e acessíveis.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">f</a>
+                        <a href="#" class="social-link">t</a>
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">yt</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">Sobre Nós</a></li>
+                        <li><a href="projects.html">Projetos</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Política de Privacidade</a></li>
+                        <li><a href="terms.html">Termos de Uso</a></li>
+                        <li><a href="cookies.html">Política de Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Mensagem especial no rodapé -->
+            <div class="indigina-message">
+                <p>UMINO NAGI - EU ESTIVE AQUI!</p>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 NAGI Technology. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const toggleButton = document.getElementById('theme-toggle');
+        if (toggleButton) {
+            toggleButton.addEventListener('click', () => {
+                document.body.classList.toggle('dark');
+                if (document.body.classList.contains('dark')) {
+                    localStorage.setItem('theme', 'dark');
+                    toggleButton.textContent = '☀️';
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    toggleButton.textContent = '🌙';
+                }
+            });
+        }
+
+        // Apply saved theme
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark');
+                if (toggleButton) toggleButton.textContent = '☀️';
+            }
+        });
+    </script>
+</body>
+</html>
